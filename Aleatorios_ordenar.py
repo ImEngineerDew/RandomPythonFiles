@@ -8,7 +8,7 @@ def ordenar_random():
         valor = int(random.random()*10.0)
         listado.append(valor)
         listado.sort()
-    print("Lista ordenada: "+str(listado))
+    print("Lista ordenada   : "+str(listado))
    
 
 if __name__ == '__main__':
