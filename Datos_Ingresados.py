@@ -1,5 +1,6 @@
 def datos_ingresados():
-        
+
+    opc = ' '    
     listado = []    
    
     while True:       
@@ -7,9 +8,17 @@ def datos_ingresados():
         if(datos>0):
             listado.append(datos)      
         else:
-            print("Fin del programa")
-            break
-    print("Datos ingresados: "+str(listado))
+            opc= input("Desea ordenar los datos: Y/N: ")
+            if(opc=='Y'):
+                listado.sort()
+                print("Datos ingresados: "+str(listado))
+                print("Fin del programa")
+                break
+            else:
+                print("Datos ingresados: "+str(listado))
+                print("Fin del programa")
+                break
+    
 
 if __name__ == '__main__':
     datos_ingresados()
