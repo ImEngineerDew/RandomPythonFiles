@@ -7,6 +7,13 @@ def resta(a,b):
 def producto(a,b):
     return a*b
 
+def tablas_multi(producto):
+    cantidad = int(input("Ingrese la cantidad de veces a multiplicar: "))
+    for i in range(0,cantidad):
+        resultado = i*producto
+        print(str(producto)+" X "+str(i)+" = "+str(resultado))
+
+    
 
 def calculadora():
 
@@ -30,6 +37,10 @@ def calculadora():
         resultado = producto(opc_a,opc_b)
 
         print("El resultado del producto es igual a: "+str(resultado))
+    elif (opcion==4):
+        valor = int(input("Ingrese el producto: "))
+        resultado = tablas_multi(valor)
+        
 
 
 
