@@ -1,3 +1,6 @@
+#Nota para el tutor: main_list es el diccionario primario en dónde se guarda la key primaria 
+#quién corresponde al NIF
+
 main_list = {}
 
 def add_client():
@@ -31,7 +34,7 @@ def erase_client(DNI):
     main_list.pop(DNI)
     print("Entrada eliminada")    
     
-def show_unique_client(DNI):
+def show_unique_client(DNI):   
     print(main_list.get(DNI))   
 
 def show_all_clients():
