@@ -1,18 +1,24 @@
 def add_client():  
 
     global main_list,personal_list
+
     while True:
         name    = input("Ingrese su nombre, por favor: ")
+        DNI     = int(input("Ingrese su DNI, por favor: "))
         address = input("Ingrese su dirección, por favor: ") 
         phone   = int(input("Ingrese su número de teléfono, por favor: "))
         mail    = input("Ingrese su correo por favor: ")
-        preference = input("¿Su cliente es preferente: (Y/N)?")
+        preferences = input("¿Su cliente es preferente: (Y/N)?").upper()    
+        show_preferences(preferences)    
 
         personal_list["Nombre"] = name
+        personal_list["DNI"] = DNI
         personal_list["Dir"] = address
         personal_list["Tel"] = phone
         personal_list["email"] = mail
         personal_list["Preferente"] = preference
+
+        main_list[DNI] = personal_list
 
         opc = input("Desea agregar otro dato (SI/NO): ").upper()
 
@@ -27,10 +33,13 @@ def show_unique_client():
 
 def show_all_clients():
     global main_list
-    print(main_list)   
+    print(main_list)
 
-def show_preferences():
-    pass
+def show_preferences(preference):
+    if (preference == 'Y'):
+        return True
+    elif (preference == 'N'):
+        return False
 
 def menu():
 
