@@ -3,38 +3,28 @@
 
 main_list = {}
 
-def add_client():
+def add_client(name,DNI,address,phone,mail,preferences):
     global main_list
 
     while True:
-        try:
-            DNI     = int(input("Ingrese su DNI, por favor: "))
-            name    = input("Ingrese su nombre, por favor: ")        
-            address = input("Ingrese su dirección, por favor: ") 
-            phone   = int(input("Ingrese su número de teléfono, por favor: "))
-            mail    = input("Ingrese su correo por favor: ")
-            preferences = input("¿Su cliente es preferente: (Y/N)?").upper()      
-                
-            personal_list ={} 
+                            
+        personal_list ={} 
         
-            personal_list["Nombre"] = name
-            personal_list["DNI"] = DNI
-            personal_list["Dir"] = address
-            personal_list["Tel"] = phone
-            personal_list["email"] = mail
-            personal_list["Preferente"] = preferences
+        personal_list["Nombre"] = name
+        personal_list["DNI"] = DNI
+        personal_list["Dir"] = address
+        personal_list["Tel"] = phone
+        personal_list["email"] = mail
+        personal_list["Preferente"] = preferences
 
-            main_list[DNI] = personal_list
-            break
-        except ValueError:
-            print("¡Por favor intente de nuevo!")
-
+        main_list[DNI] = personal_list
+        break   
 
 def erase_client(DNI):
     main_list.pop(DNI)
     print("Entrada eliminada")    
     
-def show_unique_client(DNI):   
+def show_unique_client(DNI):
     print(main_list.get(DNI))   
 
 def show_all_clients():
@@ -63,7 +53,18 @@ def menu():
             opcion = int(input("Seleccione una opción de la lista: "))   
     
             if(opcion == 1):
-                add_client()           
+                while True:
+                    try:
+                        NIF     = int(input("Ingrese su DNI, por favor: "))
+                        nombre    = input("Ingrese su nombre, por favor: ")        
+                        direccion = input("Ingrese su dirección, por favor: ") 
+                        telefono   = int(input("Ingrese su número de teléfono, por favor: "))
+                        correo    = input("Ingrese su correo por favor: ")
+                        preferencias = input("¿Su cliente es preferente: (Y/N)?").upper()
+                        add_client(nombre,NIF,direccion,telefono,correo,preferencias) 
+                        break
+                    except ValueError:
+                        print("¡Por favor intente de nuevo!")          
             elif(opcion == 2):
                 CC= int(input("Ingrese su DNI, por favor: "))
                 erase_client(CC)
@@ -80,7 +81,8 @@ def menu():
                 return False
                 break
         except ValueError:
-            print("¡Por favor intente de nuevo!")        
+            print("¡Por favor intente de nuevo!")
+        
 
 if __name__ == '__main__':   
     menu()
