@@ -80,8 +80,7 @@ def menu():
                 return False
                 break
         except ValueError:
-            print("¡Por favor intente de nuevo!")
-        
+            print("¡Por favor intente de nuevo!")        
 
 if __name__ == '__main__':   
     menu()
