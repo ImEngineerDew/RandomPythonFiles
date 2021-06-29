@@ -33,16 +33,15 @@ def show_unique_client(DNI):
 
 #----------------------function to show all clients--------------------------#
 def show_all_clients():
-    for i, j in main_list.items():
-        print(i,"=",j)
+    for clave, valor in main_list.items():
+        print(clave,"=",valor)
 
 #-------------------function to show only prefrent clients-------------------#
 def show_preferences(preferences):
-     if preferences == 'Y':
-        print (main_list.get(preferences))
-        return True
-     elif preferences == 'N':
-        return False      
+    for clave, valor in main_list.items():
+        if valor["Preferente"] == 'Y':
+            print(str(valor["Nombre"])+" - "+str(valor["DNI"]))
+                
   
 def menu():
 
