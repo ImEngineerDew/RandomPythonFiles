@@ -3,6 +3,7 @@
 
 main_list = {}
 
+#----------------------function to adding clients-----------------------#
 def add_client(name,DNI,address,phone,mail,preferences):
     global main_list
 
@@ -17,20 +18,25 @@ def add_client(name,DNI,address,phone,mail,preferences):
         personal_list["email"] = mail
         personal_list["Preferente"] = preferences
 
+        #The secondary dictionary must to be attached to the main dictionary, here this 
         main_list[DNI] = personal_list
         break   
 
+#----------------------function to erasing clients---------------------------#
 def erase_client(DNI):
     main_list.pop(DNI)
     print("Entrada eliminada")    
-    
+
+#----------------------function to show unique clients-----------------------#   
 def show_unique_client(DNI):
     print(main_list.get(DNI))   
 
+#----------------------function to show all clients--------------------------#
 def show_all_clients():
     for i, j in main_list.items():
         print(i,"=",j)
-
+        
+#-------------------function to show only prefrent clients-------------------#
 def show_preferences(preferences):
      if preferences == 'Y':
         print (main_list.get(preferences))
@@ -55,7 +61,7 @@ def menu():
             if(opcion == 1):
                 while True:
                     try:
-                        NIF     = int(input("Ingrese su DNI, por favor: "))
+                        NIF     = int(input("Ingrese su NIF, por favor: "))
                         nombre    = input("Ingrese su nombre, por favor: ")        
                         direccion = input("Ingrese su dirección, por favor: ") 
                         telefono   = int(input("Ingrese su número de teléfono, por favor: "))
@@ -66,11 +72,21 @@ def menu():
                     except ValueError:
                         print("¡Por favor intente de nuevo!")          
             elif(opcion == 2):
-                CC= int(input("Ingrese su DNI, por favor: "))
-                erase_client(CC)
+                while True:
+                    try:
+                        CC= int(input("Ingrese su NIF, por favor: "))
+                        erase_client(CC)
+                        break
+                    except ValueError:
+                        print("¡Ingrese de nuevo el NIF")
             elif(opcion == 3):
-                CC = int(input("Ingrese su DNI, por favor: "))
-                show_unique_client(CC)
+                while True:
+                    try:
+                        CC = int(input("Ingrese su NIF, por favor: "))
+                        show_unique_client(CC)
+                        break
+                    except ValueError:
+                        print("¡Ingrese de nuevo el NIF!")
             elif (opcion == 4):
                 show_all_clients()
             elif (opcion == 5):
