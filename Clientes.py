@@ -35,7 +35,7 @@ def show_unique_client(DNI):
 def show_all_clients():
     for i, j in main_list.items():
         print(i,"=",j)
-        
+
 #-------------------function to show only prefrent clients-------------------#
 def show_preferences(preferences):
      if preferences == 'Y':
