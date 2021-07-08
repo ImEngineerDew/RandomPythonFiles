@@ -1,0 +1,149 @@
+ImEngineerDew
+#7239
+
+ImEngineerDew
+ — 
+Today at 8:20 PM
+¿Puedo pasar mi código original para que se guíe? ahí usé el manejo de excepciones mucho antes del reto de recuperación
+  
+Sami253
+ — 
+Today at 8:21 PM
+Dale Dewin, aunque yo también lo hice, me sirve para comparar  y te lo agradezco
+ImEngineerDew
+ — 
+Today at 8:21 PM
+El último enunciado del reto de recuperación reza lo siguiente:
+"Por último, se deberá manejar en todoel programa en dondesea posibleel manejo de excepciones cuando se ingresen datos por el usuario"
+Sami253
+ — 
+Today at 8:22 PM
+es con Try except y concadenando no ?
+ImEngineerDew
+ — 
+Today at 8:22 PM
+Este es el código original del reto 4, a mi me sirvió y adicional puse las exepciones
+
+#Nota para el tutor: main_list es el diccionario primario en dónde se guarda la key primaria 
+#quién corresponde al NIF
+
+main_list = {}
+
+#----------------------function to adding clients-----------------------#
+
+Expand
+Clientes.py5 KB
+Lo estoy haciendo, porqué de buena fé, me funcionó para el reto 4
+Sami253
+ — 
+Today at 8:32 PM
+
+def añadir_cliente(nif,nombre, direccion, telefono, correo, preferente, baseDatos): 
+    dic_cliente= {}
+    upd_add = False
+    if len (baseDatos)>=0:
+        baseDatos [nif] = {"nombre":nombre, "direccion": direccion, "telefono": telefono, "correo": correo, "preferente":preferente}
+    return upd_add
+
+Expand
+message.txt4 KB
+mira, yo también lo hice
+ese es mi reto 4
+﻿
+
+def añadir_cliente(nif,nombre, direccion, telefono, correo, preferente, baseDatos): 
+    dic_cliente= {}
+    upd_add = False
+    if len (baseDatos)>=0:
+        baseDatos [nif] = {"nombre":nombre, "direccion": direccion, "telefono": telefono, "correo": correo, "preferente":preferente}
+    return upd_add
+
+def eliminar_cliente (nif,baseDatos):
+    if (nif in baseDatos):
+        opcion_borrar= int(input("ingrese 1 si esta seguro de borrarlo: "))
+        if (opcion_borrar== 1):
+            del baseDatos[nif]
+            
+            
+def mostrar_cliente (baseDatos):
+    print(baseDatos)
+    for clave,valor in baseDatos.items():
+        print("Nombre:{} - Direccion:{} - Tel:{} - Correo:{} - ¿Es preferente?:{}".format(clave, valor["nombre"],valor["direccion"],valor["telefono"], valor["correo"],valor["preferente"]))
+        
+def listas_all_cliente (baseDatos):
+    for clave,valor in baseDatos.items():
+        print(clave,valor["nombre"])
+        
+def lista_cliente_preferentes (baseDatos):
+    for clave,valor in baseDatos.items():
+        if valor["preferente"]:
+            print(clave,valor["nombre"])
+
+def main():
+    dic_baseDatos={}
+    while True:
+        print ("""
+        ........................................................
+                     BASE DE DATOS DE NUESTROS CLIENTES
+        ........................................................
+
+            1. Añadir cliente
+            2. Eliminar cliente
+            3. Mostrar cliente
+            4. Listar todos los clientes
+            5. Listar clientes preferentes
+            6. Terminar
+        ........................................................
+            """)
+        try:
+            opcion = int(input("Elija una de las opcion: "))
+        
+            if opcion == 1:
+
+               
+                nif= int(input("Ingrese el nif del cliente  a agregar: "))
+                nombre= input("Nombre del cliente: ").lower()
+                direccion= input("dirección: ").lower()
+                telefono= int(input("telefono: "))
+                correo = input("correo: ").lower()
+                preferente= input("¿Es un cliente preferente? (escriba SI o NO): ").lower()
+
+              
+                if (preferente == 'si'):
+                    preferente_guardar= True
+                elif (preferente== 'no'):
+                    preferente_guardar= False 
+                else:
+                    print ("Por favor escriba una opcion valida  ")
+
+                       
+                add_upd = añadir_cliente(nif, nombre, direccion, telefono, correo, preferente, dic_baseDatos)
+                print(dic_baseDatos)
+
+               
+            elif opcion == 2:
+                
+                nif_eliminado= input("Ingrese el NIF del cliente: ")
+                eliminar_cliente(nif,dic_baseDatos)
+
+            elif opcion ==3:
+                mostrar_cliente(dic_baseDatos)
+
+            elif opcion == 4:  
+                 listas_all_cliente(dic_baseDatos) 
+
+            elif opcion ==5:
+                lista_cliente_preferentes(dic_baseDatos)
+
+            if opcion ==6:
+                break
+            else:
+                print ("El cliente no existe")
+                
+        except ValueError:
+            print ("Ops! solo puede ingresar una opción válida")
+            
+if __name__ == "__main__":
+    main()
+
+message.txt4 KB
