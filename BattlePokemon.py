@@ -6,7 +6,7 @@ listTrainer = [ ]
 listPokemons = [ ]
 
 #-----------------------open a json file-----------------------------------#
-with open ("My Python Samples/pokedex.json", encoding = "utf8") as jsonFile:
+with open ("pokedex.json", encoding = "utf8") as jsonFile:
     list_pokemons = json.load(jsonFile)
 
 #-------------------ordering alphabeticalment-------------------------------#
@@ -61,6 +61,7 @@ def showTrainer(trainerID):
 def showAllTrainers():
     with open("My Python Samples/AllTrainers.txt",'w') as file:
         for key, value in pokeTrainer.items():
+            file.write(key,"= ",value)
             print(key," = ",value)        
 
 #----------------------function to erasing pokeTrainers---------------------------#
@@ -89,15 +90,14 @@ def menu():
                         nameTrainer  = input("Please write your name: ")
                         ageTrainer   = int(input("Please write your age: "))                
 
-                        for poke in range(0,5):                           
+                        while(len(pokeAdd)<5):                                             
                             poke_find = input("Please write your pokemon: ").lower()
                             encontro, id_pokemon  = binaryPoke(list_pokemons,poke_find)
                             if encontro == True:
                                 pokeAdd.append(poke_find)
                                 p=+1
                             else:
-                                print("This pokemon doesn't exist in that JSON file!")
-                                p=+1                                                                                                          
+                                print("This pokemon doesn't exist in that JSON file!")                                                                                                                                       
                         addTrainer(idTrainer,nameTrainer,ageTrainer,pokeAdd)
                         break
                     except ValueError:
@@ -123,7 +123,7 @@ def menu():
             elif (option == 4):
                 showAllTrainers()
             elif (option == 5):
-                pass
+                pass               
             elif (option == 6):
                 print("End of the program...")
                 return False
