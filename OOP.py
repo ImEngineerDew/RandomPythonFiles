@@ -7,10 +7,13 @@ class DatosPersonales:
     
     def info(self):
         print("Nombre: "+self.nombre)
-        print("Edad: "+self.edad)
+        print("Edad: "+str(self.edad))
         print("Grupo sanguíneo: "+self.tipoSangre)
-        print("Altura: "+self.altura)
+        print("Altura: "+str(self.altura))
     
-    def arrancar():
-        nuevaPersona = DatosPersonales ("Carlota Manrique",34,'O',170)
-        nuevaPersona.info()
+def arrancar():
+    nuevaPersona = DatosPersonales ("Carlota Manrique",34,'O',170)
+    nuevaPersona.info()
+
+if __name__ == '__main__':
+    arrancar()
