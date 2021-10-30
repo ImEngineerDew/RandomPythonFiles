@@ -5,7 +5,7 @@ class Europe:
         self.HDI = HDI
         self.currency = currency
 
-class europanUnion(Europe):
+class europeanUnion(Europe):
     def __init__(self, nameCountry,habitants,HDI,currency,belongsEU,belongsEurozone):
         super().__init__(nameCountry,habitants,HDI,currency)
         self.belongsEU = belongsEU
@@ -18,6 +18,15 @@ class CEI(Europe):
          self.belongsCEI = belongsCEI
          self.belongsFormerUSSR
 
+
+if __name__ == '__main__':
+    #randomEU = europeanUnion("Germany",83190656,0.947,'Euro','yes','yes')
+
+    opcion =  int(input("Seleccione que tipo de organización pertenece a un estado europeo: "))
+    print("1.  Unión Europea")
+    print("2.  Comunidad de estados independientes (exURSS)")
+
+    
 
 
 
