@@ -20,12 +20,24 @@ class CEI(Europe):
 
 
 if __name__ == '__main__':
-    #randomEU = europeanUnion("Germany",83190656,0.947,'Euro','yes','yes')
 
-    opcion =  int(input("Seleccione que tipo de organización pertenece a un estado europeo: "))
     print("1.  Unión Europea")
     print("2.  Comunidad de estados independientes (exURSS)")
+    print("3.  Salir del programa")
+    opcion =  int(input("Seleccione que tipo de organización pertenece a un estado europeo: "))
+    
+    if (opcion == 1):
+        randomEU = europeanUnion("Germany",83190656,0.947,'Euro','yes','yes')
 
+        randomEU.nameCountry = input("Ingrese el nombre del pais: ")
+        randomEU.habitants   = int(input("Ingrese los habitantes del pais: "))
+        randomEU.HDI         = float(input("Ingrese su IDH: "))
+        randomEU.currency    = input("Ingrese la moneda: ")          
+
+    elif (opcion == 2):
+        pass
+    elif (opcion == 3):
+        print("Fin del programa")
     
 
 
